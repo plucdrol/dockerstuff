@@ -7,8 +7,10 @@ services:
     image: portainer/portainer:latest
     hostname: portainer
     container_name: portainer
+    command: --admin-password-file /tmp/portainer_password
     ports:
       - 8000:8000
       - 9000:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ~/personal/portainer_password:/tmp/portainer_password
